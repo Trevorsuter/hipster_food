@@ -45,7 +45,6 @@ class Event
     total_inv.keys.each do |item|
       value[:trucks] = trucks_that_sell(item)
     end
-    require 'pry'; binding.pry
     total_inv
   end
 end
