@@ -29,8 +29,19 @@ class TestFoodTruck < MiniTest::Test
     assert_equal 0, @food_truck.check_stock(@item1)
     @food_truck.stock(@item1, 30)
     @food_truck.stock(@item2, 30)
-    # binding.pry
     assert_equal 30, @food_truck.check_stock(@item1)
     assert_equal 30, @food_truck.check_stock(@item2)
+  end
+
+  def test_potential_revenue
+    @food_truck.stock(@item1, 30)
+    @food_truck.stock(@item2, 30)
+    assert_equal 187.50, @food_truck.potential_revenue
+  end
+
+  def test_item_names
+    @food_truck.stock(@item1, 30)
+    @food_truck.stock(@item2, 30)
+    assert_equal [@item2.name, @item1.name], @food_truck.item_names
   end
 end
